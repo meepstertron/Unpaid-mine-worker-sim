@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://33ut86d2vjwn"]
+
+[ext_resource type="FontFile" uid="uid://ck87kca2mwypt" path="res://Pixeled.ttf" id="1_fyqef"]
+[ext_resource type="Script" uid="uid://c2u01lj5fe1of" path="res://ui.gd" id="1_m6e0p"]
+[ext_resource type="Script" uid="uid://dfuvgr5vk60mu" path="res://item_name.gd" id="3_27fn8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_m6e0p"]
+font = ExtResource("1_fyqef")
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_nltto"]
+font = ExtResource("1_fyqef")
+font_size = 30
+
+[node name="Control" type="Control" unique_id=18849693]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m6e0p")
+
+[node name="InventoryLabel" type="Label" parent="." unique_id=256338136]
+layout_mode = 0
+offset_left = 1076.0
+offset_top = 583.0
+offset_right = 1171.0
+offset_bottom = 679.0
+text = "0/8"
+label_settings = SubResource("LabelSettings_m6e0p")
+
+[node name="ItemName" type="Label" parent="." unique_id=909697943]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 607.0
+offset_right = 239.0
+offset_bottom = 691.0
+scale = Vector2(0.5, 0.5)
+text = "ItemName"
+label_settings = SubResource("LabelSettings_nltto")
+script = ExtResource("3_27fn8")

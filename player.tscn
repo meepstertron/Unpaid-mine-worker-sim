@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://dkl3y11vmsxh1"]
+
+[ext_resource type="Script" uid="uid://d2n11n3d4vwo5" path="res://controller.gd" id="1_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://dhf8lga5shluk" path="res://Sprite-0001.png" id="2_hqtel"]
+[ext_resource type="PackedScene" uid="uid://33ut86d2vjwn" path="res://ui.tscn" id="3_sweqy"]
+[ext_resource type="Script" uid="uid://vh2wyf3dvik" path="res://pickup.gd" id="4_sweqy"]
+[ext_resource type="Script" uid="uid://b0afnoiwvbl8d" path="res://item_sprite.gd" id="5_sweqy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y32ns"]
+size = Vector2(14.375, 14.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3pqv"]
+size = Vector2(20, 17)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_2hs0m"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=33661936]
+script = ExtResource("1_i3pqv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2056708232]
+shape = SubResource("RectangleShape2D_y32ns")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=626186750]
+scale = Vector2(0.8749998, 0.875)
+texture = ExtResource("2_hqtel")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1250247142]
+zoom = Vector2(7, 7)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D" unique_id=1603061679]
+
+[node name="Control" parent="Camera2D/CanvasLayer" unique_id=18849693 instance=ExtResource("3_sweqy")]
+offset_left = 1.0
+offset_right = 1.0
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2056418744]
+script = ExtResource("4_sweqy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1684584790]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_i3pqv")
+
+[node name="ItemSprite" type="Sprite2D" parent="." unique_id=952122343]
+position = Vector2(7, 2)
+scale = Vector2(5.75, 5.75)
+texture = SubResource("PlaceholderTexture2D_2hs0m")
+script = ExtResource("5_sweqy")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

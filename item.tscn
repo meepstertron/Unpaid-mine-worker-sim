@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://umn2egyh3orm"]
+
+[ext_resource type="Script" uid="uid://b88u0ia7nilxy" path="res://item.gd" id="1_tnite"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ttk8k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kg5e7"]
+radius = 0.5
+
+[node name="Item" type="RigidBody2D" unique_id=434832428]
+script = ExtResource("1_tnite")
+item_texture = "res://icon.svg"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=611429971]
+scale = Vector2(13.16, 13.16)
+texture = SubResource("PlaceholderTexture2D_ttk8k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=608472705]
+scale = Vector2(7, 7)
+shape = SubResource("CircleShape2D_kg5e7")
